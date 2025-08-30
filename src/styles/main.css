@@ -2,3 +2,38 @@
 @import './variables.css';
 @import './CVBuilder.css';
 @import './CVPreview.css';
+
+.app {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "cv-builder cv-preview"
+        "footer footer";
+    gap: 1rem;
+    min-height: 100dvh;
+}
+
+.header {
+    grid-area: header;
+    justify-self: center;
+}
+
+.cv-builder {
+    grid-area: cv-builder;
+    display: flex;
+}
+
+.cv-preview {
+    grid-area: cv-preview;
+    background: lightblue;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.footer {
+    grid-area: footer;
+    justify-self: center;
+    padding: var(--spacing-s);
+}

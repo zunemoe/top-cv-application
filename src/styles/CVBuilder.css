@@ -1,0 +1,35 @@
+.builder-tabs {
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--spacing-s);
+}
+
+.builder-sections {
+    background: lightgrey;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.section {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section h2 {
+
+}
+
+.placeholder {
+    padding: 2rem;
+    background: white;
+    border: 2px dashed grey;
+    border-radius: var(--border-radius);
+    text-align: center;
+    color: grey;
+}
