@@ -1,0 +1,20 @@
+:root {
+    /* --font-primary:;
+    --font-secondary:; */
+    --font-size-base: 16px;
+    --font-size-s: 14px;
+    --font-size-l: 24px;
+    --font-size-xl: 32px;
+    --font-size-xxl: 48px;
+    --font-weight-normal: 400;
+    --font-weight-medium: 600;
+    --font-weight-bold: 800;
+
+    --spacing-base: 16px;
+    --spacing-s: 8px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
