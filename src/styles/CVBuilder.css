@@ -1,23 +1,31 @@
 .builder-tabs {
     display: flex;
     flex-direction: column;
-    padding-top: var(--spacing-s);
+    padding-top: var(--spacing-base);
+}
+
+.tab:first-child {
+    border-top-left-radius: var(--border-radius);
+}
+
+.tab:last-child {
+    border-bottom-left-radius: var(--border-radius);
 }
 
 .builder-sections {
+    width: clamp(250px, 25vw, 400px);
     background: lightgrey;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    padding: var(--spacing-base);
 }
 
 .section {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid grey;
 }
 
 .section:last-child {
-    border-bottom: none;
     margin-bottom: 0;
 }
 
@@ -28,8 +36,35 @@
 .placeholder {
     padding: 2rem;
     background: white;
-    border: 2px dashed grey;
     border-radius: var(--border-radius);
     text-align: center;
     color: grey;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-s);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    background: white;
+}
+
+.tab:hover {
+    filter: brightness(var(--brightness-hover));
+}
+
+.tab.active {
+    background: lightgray;
+    box-shadow: var(--box-shadow);
+}
+
+.tab svg {
+    width: 24px;
+    height: 24px;
+}
+
+.tab.active svg {
 }

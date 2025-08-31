@@ -1,6 +1,7 @@
 @import './reset.css';
 @import './variables.css';
 @import './CVBuilder.css';
+@import './CVConfig.css';
 @import './CVPreview.css';
 
 .app {
@@ -13,6 +14,7 @@
         "footer footer";
     gap: 1rem;
     min-height: 100dvh;
+    padding: 0 var(--spacing-xl);
 }
 
 .header {
