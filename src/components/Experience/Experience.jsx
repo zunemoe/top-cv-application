@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import ExperienceForm from './ExperienceForm.jsx'
 import ExperienceCard from './ExperienceCard.jsx'
+import Icon from '@mdi/react'
+import { mdiPlus } from '@mdi/js'
 
 function Experience() {
     const [experiences, setExperiences] = useState([]);
@@ -64,14 +66,15 @@ function Experience() {
       <section className="section Experience">            
         <div className="section-header">
           <h2>Experience</h2>
-          <button
-          type="button"
+          <Icon 
+          path={mdiPlus} 
+          size={1} 
+          title="Add Experience"
+          ariaLabel="Add Experience"
           className={`btn add-experience ${editingId !== null ? 'disable' : ''}`}
           onClick={addExperience}
-          >
-          + Add Experience
-          </button>
-        </div>
+          />
+        </div>   
         <div className='experience-container'>
           {experiences.map(exp => (
             <div key={exp.id} className='experience-item'>

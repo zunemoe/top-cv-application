@@ -5,6 +5,7 @@
     --color-off-white: #F9F7F7;
     --color-white: #FFFFFF;
     --color-black: #000000;
+    --color-off-black: #333333;
     /* --font-primary:;
     --font-secondary:; */
     --font-size-base: 16px;
@@ -16,10 +17,10 @@
     --font-weight-medium: 600;
     --font-weight-bold: 800;
 
-    --spacing-base: 16px;
-    --spacing-s: 8px;
-    --spacing-l: 24px;
-    --spacing-xl: 32px;
+    --spacing-base: 1rem;
+    --spacing-s: 0.5rem;
+    --spacing-l: 1.5rem;
+    --spacing-xl: 2rem;
     --border-radius: 8px;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;

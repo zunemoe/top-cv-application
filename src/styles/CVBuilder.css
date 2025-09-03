@@ -1,44 +1,8 @@
+/* Tabs */
 .builder-tabs {
     display: flex;
     flex-direction: column;
     padding-top: var(--spacing-base);
-}
-
-.tab:first-child {
-    border-top-left-radius: var(--border-radius);
-}
-
-.tab:last-child {
-    border-bottom-left-radius: var(--border-radius);
-}
-
-.builder-sections {
-    width: clamp(250px, 25vw, 400px);
-    background: lightgrey;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: var(--spacing-base);
-}
-
-.section {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-}
-
-.section:last-child {
-    margin-bottom: 0;
-}
-
-.section h2 {
-
-}
-
-.placeholder {
-    padding: 2rem;
-    background: white;
-    border-radius: var(--border-radius);
-    text-align: center;
-    color: grey;
 }
 
 .tab {
@@ -50,6 +14,15 @@
     cursor: pointer;
     transition: var(--transition);
     background: white;
+    box-shadow: var(--box-shadow);
+}
+
+.tab:first-child {
+    border-top-left-radius: var(--border-radius);
+}
+
+.tab:last-child {
+    border-bottom-left-radius: var(--border-radius);
 }
 
 .tab:hover {
@@ -57,14 +30,156 @@
 }
 
 .tab.active {
-    background: lightgray;
+    background: var(--color-light-blue);
     box-shadow: var(--box-shadow);
 }
 
 .tab svg {
     width: 24px;
     height: 24px;
+    fill: var(--color-off-black);
 }
 
 .tab.active svg {
+    fill: var(--color-navy);
 }
+
+/* Builder Sections */
+.builder-sections {
+    width: clamp(250px, 25vw, 400px);
+    /* background: lightgrey; */
+    border-radius: var(--border-radius);
+    /* box-shadow: var(--box-shadow); */
+    /* padding: var(--spacing-base); */
+}
+
+.section {
+    margin-bottom: var(--spacing-l);
+    /* padding-bottom: 1rem; */
+    padding: var(--spacing-base);
+    background: var(--color-off-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section h2 {
+    color: var(--color-navy);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-base);
+}
+
+.section-header .btn {
+    display: flex;
+    border: none;    
+    background: var(--color-navy);
+    border-radius: 0.25rem;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.section-header .btn.disable {
+    background: grey;
+    cursor: not-allowed;
+}
+
+.section-header .btn:hover {
+    filter: brightness(var(--brightness-hover));
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-s) / 4);
+}
+
+.form-row input {
+    padding: var(--spacing-s);
+    border: none;
+    border-radius: var(--border-radius); 
+    transition: var(--transition);    
+}
+
+.form-row input:focus {
+    outline: 1px solid var(--color-blue);
+    box-shadow: var(--box-shadow);       
+}
+
+.form-row textarea {
+    padding: var(--spacing-s);
+    border: none;
+    border-radius: var(--border-radius);
+    transition: outline var(--transition), box-shadow var(--transition);
+    resize: vertical;
+    min-height: 200px;       
+}
+
+.form-row textarea:focus {
+    outline: 1px solid var(--color-blue);
+    box-shadow: var(--box-shadow);      
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    margin-top: var(--spacing-base);
+}
+
+.form-actions .btn {
+    cursor: pointer;
+}
+
+.form-actions .btn.save {
+    background: var(--color-navy);
+    color: var(--color-white);
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: var(--transition);
+}
+
+.form-actions .btn.cancel {
+    background: var(--color-light-blue);
+    color: var(--color-off-black);
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: var(--transition);
+}
+
+.form-actions .btn.delete {    
+    margin-right: auto;
+    color: var(--color-off-black);
+}
+
+.form-actions .btn:hover {
+    box-shadow: var(--box-shadow);
+}
+
+
+
+.placeholder {
+    padding: var(--spacing-base);
+    background: white;
+    border-radius: var(--border-radius);
+    text-align: center;
+    color: grey;
+}
+
+

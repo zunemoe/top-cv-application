@@ -24,7 +24,7 @@
 
 .cv-builder {
     grid-area: cv-builder;
-    display: flex;
+    display: flex;    
 }
 
 .cv-preview {

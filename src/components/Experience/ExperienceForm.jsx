@@ -1,3 +1,6 @@
+import Icon from '@mdi/react'
+import { mdiDelete } from '@mdi/js'
+
 function ExperienceForm({
   experience,
   onInputChange,
@@ -6,7 +9,7 @@ function ExperienceForm({
   onDelete,
 }) {
     return (
-        <div className="experience-form">
+        <div className="form experience">
             <div className="form-row">
                 <label htmlFor={`companyName-${experience.id}`}>Company Name</label>
                 <input
@@ -48,7 +51,7 @@ function ExperienceForm({
             <div className="form-row">
                 <label htmlFor={`startDate-${experience.id}`}>Start Date</label>
                 <input
-                    type="month"
+                    type="date"
                     id={`startDate-${experience.id}`}
                     value={experience.startDate}
                     onChange={(e) =>
@@ -60,7 +63,7 @@ function ExperienceForm({
             <div className="form-row">
                 <label htmlFor={`endDate-${experience.id}`}>End Date</label>
                 <input
-                    type="month"
+                    type="date"
                     id={`endDate-${experience.id}`}
                     value={experience.endDate}
                     onChange={(e) =>
@@ -82,14 +85,12 @@ function ExperienceForm({
             </div>
             
             <div className="form-actions">
-                <button
-                type="button"
-                className="btn delete"
+                <Icon 
+                path={mdiDelete} 
+                size={1}
+                className="btn delete" 
                 onClick={() => onDelete(experience.id)}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg>
-                    Delete
-                </button>
+                />                
                 <button
                     type="button"
                     className="btn cancel"
