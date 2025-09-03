@@ -1,4 +1,10 @@
 :root {
+    --color-navy: #112D4E;
+    --color-blue: #3F72AF;
+    --color-light-blue: #DBE2EF;
+    --color-off-white: #F9F7F7;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
     /* --font-primary:;
     --font-secondary:; */
     --font-size-base: 16px;

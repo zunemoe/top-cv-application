@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PersonalInfo from './components/PersonalInfo.jsx'
-import Experience from './components/Experience.jsx'
+import Experience from './components/Experience/Experience.jsx'
 import Education from './components/Education.jsx'
 import Skill from './components/Skill.jsx'
 
