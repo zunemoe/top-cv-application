@@ -44,10 +44,10 @@ npm run dev
 ## Development Plan
 [x] Project setup and structure
 [x] README and architecture documentation
-[ ] Basic layout (2-column design)
+[x] Basic layout (2-column design)
 [ ] Custom hook for state management
-[ ] Personal Info component
-[ ] Experience component
+[x] Personal Info component
+[x] Experience component
 [ ] Education component
 [ ] Skills component
 [ ] CV Preview component

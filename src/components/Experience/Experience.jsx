@@ -19,7 +19,7 @@ function Experience() {
             description: '',
             isEditing: true
         }
-        setExperiences(prev => [...prev, newExperience])
+        setExperiences(prev => [newExperience, ...prev])
         setEditingId(newExperience.id)
     };
 
