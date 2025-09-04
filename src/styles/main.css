@@ -39,3 +39,11 @@
     justify-self: center;
     padding: var(--spacing-s);
 }
+
+h1, h2, h3, button {
+    font-family: var(--font-primary);
+}
+
+p, label, input, textarea {
+    font-family: var(--font-secondary);
+}

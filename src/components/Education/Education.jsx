@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useScrollToForm } from '../../hooks/useScrollToForm.js'
 import EducationForm from "./EducationForm.jsx"
 import EducationCard from "./EducationCard.jsx"
 import Icon from '@mdi/react'
@@ -7,6 +8,7 @@ import { mdiPlus } from '@mdi/js'
 function Education() {
     const [educations, setEducations] = useState([]);
     const [editingId, setEditingId] = useState(null);
+    const editingRef = useScrollToForm(editingId);
 
     const addEducation = () => {
         const newEducation = {
@@ -62,20 +64,25 @@ function Education() {
 
     return (
         <section className="section Education">
-            <div className="section-header">
+            <div 
+            className="section-header"
+            ref={editingId !== null ? editingRef : null}
+            >
                 <h2>Education</h2>
                 <Icon 
                 path={mdiPlus} 
                 size={1} 
                 title="Add Education"
-                ariaLabel="Add Education"
                 className={`btn add-education ${editingId !== null ? 'disable' : ''}`}
                 onClick={addEducation}
                 />
             </div>
             <div className="education-container">         
                 {educations.map(edu => (
-                    <div key={edu.id} className={`education-item ${edu.isEditing ? 'form' : 'card'}`}>
+                    <div 
+                    key={edu.id} 
+                    className={`education-item ${edu.isEditing ? 'form' : 'card'}`}                  
+                    >
                         {edu.isEditing ? (
                             <EducationForm
                             education={edu}

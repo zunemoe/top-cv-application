@@ -10,10 +10,10 @@ function PersonalInfo() {
     });
 
     const handleInputChange = (e) => {
-        const { key, value } = e.target;
+        const { name, value } = e.target;
         setPersonalData(prev => ({
             ...prev,
-            [key]: value
+            [name]: value
         }));
     }
 
@@ -28,7 +28,7 @@ function PersonalInfo() {
                     <input
                         type="text"
                         id="fullName"
-                        key="fullName"
+                        name="fullName"
                         value={personalData.fullName}
                         onChange={handleInputChange}
                         placeholder="John Doe"
@@ -39,7 +39,7 @@ function PersonalInfo() {
                     <input
                         type="email"
                         id="email"
-                        key="email"
+                        name="email"
                         value={personalData.email}
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
@@ -50,7 +50,7 @@ function PersonalInfo() {
                     <input
                         type="tel"
                         id="mobile"
-                        key="mobile"
+                        name="mobile"
                         value={personalData.mobile}
                         onChange={handleInputChange}
                         placeholder="+1 234 567 8900"
@@ -61,7 +61,7 @@ function PersonalInfo() {
                     <input
                         type="text"
                         id="address"
-                        key="address"
+                        name="address"
                         value={personalData.address}
                         onChange={handleInputChange}
                         placeholder="123 Main St, City, Country, Postcode"
@@ -72,7 +72,7 @@ function PersonalInfo() {
                     <input
                         type="text"
                         id="linkedIn"
-                        key="linkedIn"
+                        name="linkedIn"
                         value={personalData.linkedIn}
                         onChange={handleInputChange}
                         placeholder="https://www.linkedin.com/in/yourprofile"

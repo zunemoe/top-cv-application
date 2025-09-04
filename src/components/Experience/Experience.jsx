@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useScrollToForm } from '../../hooks/useScrollToForm.js'
 import ExperienceForm from './ExperienceForm.jsx'
 import ExperienceCard from './ExperienceCard.jsx'
 import Icon from '@mdi/react'
@@ -7,6 +8,7 @@ import { mdiPlus } from '@mdi/js'
 function Experience() {
     const [experiences, setExperiences] = useState([]);
     const [editingId, setEditingId] = useState(null);
+    const editingRef = useScrollToForm(editingId);
 
     const addExperience = () => {
         const newExperience = {
@@ -64,20 +66,25 @@ function Experience() {
 
     return (
       <section className="section Experience">            
-        <div className="section-header">
+        <div 
+        className="section-header"
+        ref={editingId !== null ? editingRef : null}
+        >
           <h2>Experience</h2>
           <Icon 
           path={mdiPlus} 
           size={1} 
           title="Add Experience"
-          ariaLabel="Add Experience"
           className={`btn add-experience ${editingId !== null ? 'disable' : ''}`}
           onClick={addExperience}
           />
         </div>   
         <div className='experience-container'>
           {experiences.map(exp => (
-            <div key={exp.id} className={`experience-item ${exp.isEditing ? 'form' : 'card'}`}>
+            <div 
+            key={exp.id} 
+            className={`experience-item ${exp.isEditing ? 'form' : 'card'}`}
+            >
               {exp.isEditing ? (
                 <ExperienceForm 
                   experience={exp} 

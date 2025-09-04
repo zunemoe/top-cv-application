@@ -91,6 +91,7 @@
 .section-header .btn.disable {
     background: grey;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 .section-header .btn:hover {

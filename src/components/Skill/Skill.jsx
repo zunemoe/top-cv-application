@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useScrollToForm } from '../../hooks/useScrollToForm.js'
 import SkillForm from './SkillForm.jsx'
 import SkillCard from './SkillCard.jsx'
 import Icon from '@mdi/react'
@@ -7,6 +8,7 @@ import { mdiPlus } from '@mdi/js'
 function Skill() {
     const [skills, setSkills] = useState([]);
     const [editingId, setEditingId] = useState(null);
+    const editingRef = useScrollToForm(editingId);
 
     const addSkill = () => {
         const newSkill = {
@@ -59,20 +61,25 @@ function Skill() {
 
     return(
         <section className="section Skill">
-            <div className="section-header">
+            <div 
+            className="section-header"
+            ref={editingId !== null ? editingRef : null}
+            >
                 <h2>Skill</h2>
                 <Icon 
                 path={mdiPlus} 
                 size={1} 
-                title="Add Skill"
-                ariaLabel="Add Skill"
+                title="Add Skill"                
                 className={`btn add-skill ${editingId !== null ? 'disable' : ''}`}
                 onClick={addSkill}
                 />
             </div>
             <div className="skill-container">
                 {skills.map(skill => (
-                    <div key={skill.id} className={`skill-item ${skill.isEditing ? 'form' : 'card'}`}>
+                    <div 
+                    key={skill.id} 
+                    className={`skill-item ${skill.isEditing ? 'form' : 'card'}`}                    
+                    >
                         {skill.isEditing ? (
                             <SkillForm
                             skill={skill}
