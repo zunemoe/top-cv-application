@@ -46,7 +46,7 @@ function EducationForm({ education, onInputChange, onSave, onCancel, onDelete })
             <div className="form-row">
                 <label htmlFor={`startDate-${education.id}`}>Start Date</label>
                 <input
-                    type="date"
+                    type="month"
                     id={`startDate-${education.id}`}
                     value={education.startDate}
                     onChange={(e) =>
@@ -58,7 +58,7 @@ function EducationForm({ education, onInputChange, onSave, onCancel, onDelete })
             <div className="form-row">
                 <label htmlFor={`endDate-${education.id}`}>End Date</label>
                 <input
-                    type="date"
+                    type="month"
                     id={`endDate-${education.id}`}
                     value={education.endDate}
                     onChange={(e) =>

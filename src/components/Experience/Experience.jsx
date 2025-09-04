@@ -77,7 +77,7 @@ function Experience() {
         </div>   
         <div className='experience-container'>
           {experiences.map(exp => (
-            <div key={exp.id} className='experience-item'>
+            <div key={exp.id} className={`experience-item ${exp.isEditing ? 'form' : 'card'}`}>
               {exp.isEditing ? (
                 <ExperienceForm 
                   experience={exp} 
@@ -91,8 +91,6 @@ function Experience() {
               )}
             </div>
           ))}
-
-          
         </div>
       </section>
     )

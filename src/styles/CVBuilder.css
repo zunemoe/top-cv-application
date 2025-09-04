@@ -56,10 +56,11 @@
 .section {
     margin-bottom: var(--spacing-l);
     /* padding-bottom: 1rem; */
-    padding: var(--spacing-base);
+    /* padding: var(--spacing-base); */
     background: var(--color-off-white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    overflow: hidden;
 }
 
 .section:last-child {
@@ -74,7 +75,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-base);
+    padding: var(--spacing-base);
 }
 
 .section-header .btn {
@@ -99,7 +100,11 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--spacing-s) / 2);
+    gap: calc(var(--spacing-s) / 2);    
+}
+
+.form.personal-info {
+    padding: 0 var(--spacing-base) var(--spacing-base) var(--spacing-base);
 }
 
 .form-row {
@@ -172,14 +177,29 @@
     box-shadow: var(--box-shadow);
 }
 
-
-
-.placeholder {
+/* Cards */
+.experience-item.card,
+.education-item.card,
+.skill-item.card {
+    cursor: pointer;
+    margin-bottom: var(--spacing-s);
     padding: var(--spacing-base);
-    background: white;
-    border-radius: var(--border-radius);
-    text-align: center;
-    color: grey;
+    background: var(--color-white);
+}
+
+.experience-item.card:last-child,
+.education-item.card:last-child,
+.skill-item.card:last-child {
+    margin-bottom: 0;
+}
+
+/* Forms */
+.experience-item.form,
+.education-item.form,
+.skill-item.form {
+    background: var(--color-off-white);
+    padding: var(--spacing-base);
+    margin-bottom: var(--spacing-l);
 }
 
 

@@ -1,7 +1,7 @@
 import PersonalInfo from './PersonalInfo.jsx'
 import Experience from './Experience/Experience.jsx'
-import Education from './Education.jsx'
-import Skill from './Skill.jsx'
+import Education from './Education/Education.jsx'
+import Skill from './Skill/Skill.jsx'
 
 function CVBuilder() {
   return (

@@ -69,13 +69,13 @@ function Education() {
                 size={1} 
                 title="Add Education"
                 ariaLabel="Add Education"
-                className={`btn add-experience ${editingId !== null ? 'disable' : ''}`}
+                className={`btn add-education ${editingId !== null ? 'disable' : ''}`}
                 onClick={addEducation}
                 />
             </div>
             <div className="education-container">         
                 {educations.map(edu => (
-                    <div key={edu.id} className="education-item">
+                    <div key={edu.id} className={`education-item ${edu.isEditing ? 'form' : 'card'}`}>
                         {edu.isEditing ? (
                             <EducationForm
                             education={edu}
