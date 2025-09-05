@@ -1,20 +1,14 @@
 import { useState } from 'react'
 
-function PersonalInfo() {
-    const [personalData, setPersonalData] = useState({
-        fullName: '',
-        email: '',
-        mobile: '',
-        address: '',
-        linkedIn: ''
-    });
+function PersonalInfo({ cvDataHook }) {
+    const { cvData, updatePersonalInfo } = cvDataHook;
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setPersonalData(prev => ({
-            ...prev,
+        updatePersonalInfo({
+            ...cvData.personalInfo,
             [name]: value
-        }));
+        });
     }
 
     return (
@@ -29,7 +23,7 @@ function PersonalInfo() {
                         type="text"
                         id="fullName"
                         name="fullName"
-                        value={personalData.fullName}
+                        value={cvData.personalInfo?.fullName || ''}
                         onChange={handleInputChange}
                         placeholder="John Doe"
                     />
@@ -40,7 +34,7 @@ function PersonalInfo() {
                         type="email"
                         id="email"
                         name="email"
-                        value={personalData.email}
+                        value={cvData.personalInfo?.email || ''}
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
                     />
@@ -51,7 +45,7 @@ function PersonalInfo() {
                         type="tel"
                         id="mobile"
                         name="mobile"
-                        value={personalData.mobile}
+                        value={cvData.personalInfo?.mobile || ''}
                         onChange={handleInputChange}
                         placeholder="+1 234 567 8900"
                     />
@@ -62,7 +56,7 @@ function PersonalInfo() {
                         type="text"
                         id="address"
                         name="address"
-                        value={personalData.address}
+                        value={cvData.personalInfo?.address || ''}
                         onChange={handleInputChange}
                         placeholder="123 Main St, City, Country, Postcode"
                     />
@@ -73,7 +67,7 @@ function PersonalInfo() {
                         type="text"
                         id="linkedIn"
                         name="linkedIn"
-                        value={personalData.linkedIn}
+                        value={cvData.personalInfo?.linkedIn || ''}
                         onChange={handleInputChange}
                         placeholder="https://www.linkedin.com/in/yourprofile"
                     />

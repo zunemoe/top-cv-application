@@ -48,8 +48,8 @@ npm run dev
 [ ] Custom hook for state management
 [x] Personal Info component
 [x] Experience component
-[ ] Education component
-[ ] Skills component
+[x] Education component
+[x] Skills component
 [ ] CV Preview component
 [ ] Styling
 [ ] Form validation

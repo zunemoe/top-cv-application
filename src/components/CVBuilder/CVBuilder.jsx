@@ -1,9 +1,10 @@
-import PersonalInfo from './PersonalInfo.jsx'
+import { useState } from 'react'
+import PersonalInfo from './PersonalInfo/PersonalInfo.jsx'
 import Experience from './Experience/Experience.jsx'
 import Education from './Education/Education.jsx'
 import Skill from './Skill/Skill.jsx'
 
-function CVBuilder() {
+function CVBuilder({ cvDataHook }) {
   return (
     <div className="cv-builder">
       <div className="builder-tabs">
@@ -19,10 +20,10 @@ function CVBuilder() {
         </button>
       </div>
       <div className="builder-sections">
-        <PersonalInfo />
-        <Experience />
-        <Education />
-        <Skill />
+        <PersonalInfo cvDataHook={cvDataHook} />
+        <Experience cvDataHook={cvDataHook} />
+        <Education cvDataHook={cvDataHook} />
+        <Skill cvDataHook={cvDataHook} />
       </div>      
     </div>
   );

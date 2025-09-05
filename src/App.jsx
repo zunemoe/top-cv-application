@@ -1,7 +1,11 @@
 import { useState } from 'react'
-import CVBuilder from './components/CVBuilder.jsx'
+import CVBuilder from './components/CVBuilder/CVBuilder.jsx'
+import CVPreview from './components/Preview/CVPreview.jsx'
+import useCVData from './hooks/useCVData.js'
 
 function App() {
+  const cvDataHook = useCVData()
+
   return (
     <div className="app">
       <header className="header">
@@ -9,16 +13,10 @@ function App() {
       </header>
 
       {/* CV Builder */}
-      <CVBuilder />
+      <CVBuilder cvDataHook={cvDataHook}/>
       
       {/* CV Preview */}
-      <div className="cv-preview">
-        <div className="preview-header">
-        </div>
-
-        <div className="preview-body">
-        </div>
-      </div>
+      <CVPreview cvData={cvDataHook.cvData}/>
 
       <footer className="footer">
         <p>© 2025 CV Builder. All rights reserved.</p>

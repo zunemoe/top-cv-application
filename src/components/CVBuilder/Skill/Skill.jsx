@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useScrollToForm } from '../../hooks/useScrollToForm.js'
+import { useScrollToForm } from '../../../hooks/useScrollToForm.js'
 import SkillForm from './SkillForm.jsx'
 import SkillCard from './SkillCard.jsx'
 import Icon from '@mdi/react'
@@ -65,7 +65,7 @@ function Skill() {
             className="section-header"
             ref={editingId !== null ? editingRef : null}
             >
-                <h2>Skill</h2>
+                <h2>Skills</h2>
                 <Icon 
                 path={mdiPlus} 
                 size={1} 
