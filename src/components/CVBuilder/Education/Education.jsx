@@ -60,7 +60,8 @@ function Education({ cvDataHook }) {
     };
 
     const cancelEdit = (id) => {
-        const education = cvData.educations.find((edu) => edu.id === id);
+        const education = educations.find((edu) => edu.id === id);
+
         if (!education.schoolName && !education.degree) 
             setEducations(prev => prev.filter(edu => edu.id !== id));
         else {
@@ -73,14 +74,9 @@ function Education({ cvDataHook }) {
                 );
             } else {
                 setEducations((prev) => prev.filter((edu) => edu.id !== id));
-            }
-            // setEducations((prev) =>
-            //     prev.map((edu) =>
-            //         edu.id === id ? { ...edu, isEditing: false } : edu
-            //     )
-            // );
-            setEditingId(null);
+            }            
         }
+        setEditingId(null);
     };
 
     const deleteEducationItem = (id) => {
@@ -101,7 +97,7 @@ function Education({ cvDataHook }) {
                 size={1} 
                 title="Add Education"
                 className={`btn add-education ${editingId !== null ? 'disable' : ''}`}
-                onClick={editingId === null ? addEducationItem : undefined}
+                onClick={addEducationItem}
                 />
             </div>
             <div className="education-container">         
@@ -131,4 +127,4 @@ function Education({ cvDataHook }) {
     )
 };
 
-export default Education
+export default Education;

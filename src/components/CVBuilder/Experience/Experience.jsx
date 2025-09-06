@@ -4,13 +4,19 @@ import ExperienceForm from "./ExperienceForm.jsx";
 import ExperienceCard from "./ExperienceCard.jsx";
 import Icon from "@mdi/react";
 import { mdiPlus } from "@mdi/js";
+import { useEffect } from "react";
 
-function Experience() {
+function Experience({ cvDataHook }) {
+  const { cvData, addExperience, updateExperience, deleteExperience } = cvDataHook;
   const [experiences, setExperiences] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const editingRef = useScrollToForm(editingId);
 
-  const addExperience = () => {
+  useEffect(() => {
+    setExperiences(cvData.experiences || []);
+  }, [cvData.experiences]);
+
+  const addExperienceItem = () => {
     const newExperience = {
       id: Date.now(),
       companyName: "",
@@ -32,13 +38,23 @@ function Experience() {
   };
 
   const saveExperience = (id) => {
+    const experience = experiences.find((exp) => exp.id === id);
+    const { isEditing, ...experienceData } = experience;
+
+    const existingExperience = cvData.experiences.find((exp) => exp.id === id);
+    if (existingExperience) {
+      updateExperience(id, experienceData);
+    } else {
+      addExperience(experienceData);
+    }
+
     setExperiences((prev) =>
       prev.map((exp) => (exp.id === id ? { ...exp, isEditing: false } : exp))
     );
     setEditingId(null);
   };
 
-  const editExperience = (id) => {
+  const editExperienceItem = (id) => {
     setExperiences((prev) =>
       prev.map((exp) => (exp.id === id ? { ...exp, isEditing: true } : exp))
     );
@@ -48,16 +64,23 @@ function Experience() {
   const cancelEdit = (id) => {
     const experience = experiences.find((exp) => exp.id === id);
 
-    if (!experience.companyName && !experience.position) deleteExperience(id);
+    if (!experience.companyName && !experience.position)
+      setExperiences((prev) => prev.filter((exp) => exp.id !== id));
     else {
-      setExperiences((prev) =>
-        prev.map((exp) => (exp.id === id ? { ...exp, isEditing: false } : exp))
-      );
-      setEditingId(null);
+      const savedExperience = cvData.experiences.find((exp) => exp.id === id);
+      if (savedExperience) {
+        setExperiences((prev) =>
+          prev.map((exp) => (exp.id === id ? { ...savedExperience, isEditing: false } : exp))
+        );
+      } else {
+        setExperiences((prev) => prev.filter((exp) => exp.id !== id));
+      }            
     }
+    setEditingId(null);
   };
 
-  const deleteExperience = (id) => {
+  const deleteExperienceItem = (id) => {
+    deleteExperience(id);
     setExperiences((prev) => prev.filter((exp) => exp.id !== id));
     setEditingId(null);
   };
@@ -76,7 +99,7 @@ function Experience() {
           className={`btn add-experience ${
             editingId !== null ? "disable" : ""
           }`}
-          onClick={addExperience}
+          onClick={addExperienceItem}
         />
       </div>
       <div className="experience-container">
@@ -91,10 +114,10 @@ function Experience() {
                 onInputChange={handleInputChange}
                 onSave={saveExperience}
                 onCancel={cancelEdit}
-                onDelete={deleteExperience}
+                onDelete={deleteExperienceItem}
               />
             ) : (
-              <ExperienceCard experience={exp} onEdit={editExperience} />
+              <ExperienceCard experience={exp} onEdit={editExperienceItem} />
             )}
           </div>
         ))}

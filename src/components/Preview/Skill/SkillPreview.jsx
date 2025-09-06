@@ -1,5 +1,5 @@
 function SkillPreview({ skills }) {
-    if (skills && skills.length > 0) return null;
+    if (!skills || skills.length === 0) return null;
 
     return (
         <div className="preview skill">

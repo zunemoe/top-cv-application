@@ -4,13 +4,19 @@ import SkillForm from './SkillForm.jsx'
 import SkillCard from './SkillCard.jsx'
 import Icon from '@mdi/react'
 import { mdiPlus } from '@mdi/js'
+import { useEffect } from 'react'
 
-function Skill() {
+function Skill({ cvDataHook }) {
+    const { cvData, addSkill, updateSkill, deleteSkill } = cvDataHook;
     const [skills, setSkills] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const editingRef = useScrollToForm(editingId);
 
-    const addSkill = () => {
+    useEffect(() => {
+        setSkills(cvData.skills || []);
+    }, [cvData.skills]);
+
+    const addSkillItem = () => {
         const newSkill = {
             id: Date.now(),
             name: '',
@@ -27,13 +33,23 @@ function Skill() {
     };
 
     const saveSkill = (id) => {
+      const skill = skills.find((skill) => skill.id === id);
+      const { isEditing, ...skillData } = skill;
+
+      const existingSkill = cvData.skills.find((skill) => skill.id === id);
+      if (existingSkill) {
+        updateSkill(id, skillData);
+      } else {
+        addSkill(skillData);
+      }
+
       setSkills((prev) =>
         prev.map((skill) => (skill.id === id ? { ...skill, isEditing: false } : skill))
       );
       setEditingId(null);
     };
 
-    const editSkill = (id) => {
+    const editSkillItem = (id) => {
       setSkills((prev) =>
         prev.map((skill) => (skill.id === id ? { ...skill, isEditing: true } : skill))
       );
@@ -43,18 +59,25 @@ function Skill() {
     const cancelEdit = (id) => {
       const skill = skills.find((skill) => skill.id === id);
 
-        if (!skill.name) deleteSkill(id);
+        if (!skill.name.trim()) // Check for empty/whitespace-only names
+          setSkills((prev) => prev.filter((skill) => skill.id !== id));
         else {
+          const savedSkil = cvData.skills.find((skill) => skill.id === id);
+          if (savedSkil) {
             setSkills((prev) =>
                 prev.map((skill) =>
                     skill.id === id ? { ...skill, isEditing: false } : skill
                 )
             );
-            setEditingId(null);
+          } else {
+            setSkills((prev) => prev.filter((skill) => skill.id !== id));
+          }            
         }
+        setEditingId(null);
     };
 
-    const deleteSkill = (id) => {
+    const deleteSkillItem = (id) => {
+      deleteSkill(id);
       setSkills((prev) => prev.filter((skill) => skill.id !== id));
       if (editingId === id) setEditingId(null);
     };
@@ -71,7 +94,7 @@ function Skill() {
                 size={1} 
                 title="Add Skill"                
                 className={`btn add-skill ${editingId !== null ? 'disable' : ''}`}
-                onClick={addSkill}
+                onClick={addSkillItem}
                 />
             </div>
             <div className="skill-container">
@@ -86,12 +109,12 @@ function Skill() {
                             onInputChange={handleInputChange}
                             onSave={saveSkill}
                             onCancel={cancelEdit}
-                            onDelete={deleteSkill}
+                            onDelete={deleteSkillItem}
                             />
                         ) : (
                             <SkillCard 
                             skill={skill}
-                            onEdit={editSkill}
+                            onEdit={editSkillItem}
                             />
                         )}
                     </div>
@@ -99,6 +122,6 @@ function Skill() {
             </div>
         </section>
     )
-}
+};
 
-export default Skill
+export default Skill;
