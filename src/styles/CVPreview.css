@@ -105,7 +105,7 @@
 }
 
 .preview.skill .skills-container .skill-badge {
-    background: var(--color-white);
+    background: var(--color-off-white);
     color: var(--color-navy);
     padding: calc((var(--spacing-s) / 2)) var(--spacing-base);
     border-radius: calc(var(--border-radius) / 2);
