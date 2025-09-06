@@ -29,9 +29,10 @@
 
 .cv-preview {
     grid-area: cv-preview;
-    background: lightblue;
+    background: var(--color-off-white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    overflow: hidden;
 }
 
 .footer {

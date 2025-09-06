@@ -7,10 +7,10 @@ function ExperiencePreview({ experiences }) {
         {experiences.map((exp) => (
           <div className="card" key={exp.id}>
             <div className="card-header">
-                <h4 className="title">{exp.position}</h4>
+                <h4 className="company">{exp.companyName}</h4>
                 <p className="period">{exp.startDate} - {exp.endDate || 'Present'}</p>
             </div>
-            <p className="company">{exp.company}</p>
+            <p className="position">{exp.position}</p>
             <p className="location">{exp.location}</p>
             <p className="description">{exp.description}</p>
           </div>

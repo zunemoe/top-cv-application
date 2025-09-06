@@ -69,7 +69,7 @@ function PersonalInfo({ cvDataHook }) {
                         name="linkedIn"
                         value={cvData.personalInfo?.linkedIn || ''}
                         onChange={handleInputChange}
-                        placeholder="https://www.linkedin.com/in/yourprofile"
+                        placeholder="LinkedIn handle"
                     />
                 </div>
             </form>

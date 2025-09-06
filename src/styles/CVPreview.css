@@ -1,0 +1,113 @@
+/* Preview Header */
+
+.preview-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-blue);
+    padding: var(--spacing-xl);
+}
+
+.preview-header h2 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-base);
+    font-size: var(--font-size-xl);    
+}
+
+.preview-header .personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: var(--spacing-l);
+    color: var(--color-white);
+}
+
+.preview-header .personal-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem; /* Space between icon and text */
+}
+
+.preview-header .personal-info svg {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.preview-header .personal-info a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* Preview Body */
+
+.preview-body {
+    padding: var(--spacing-xl);    
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.preview-body h3 {
+    color: var(--color-navy);
+    background: var(--color-light-blue);
+    text-align: center;
+    padding: calc((var(--spacing-s) / 2));
+    margin-bottom: var(--spacing-base);
+}
+
+.preview-body .card {
+    display: flex;
+    flex-direction: column;
+    gap: calc((var(--spacing-s) / 4));   
+    margin-bottom: var(--spacing-l); 
+}
+
+.preview-body .card:last-child {
+    margin-bottom: 0;
+}
+
+.preview-body .card .card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview-body .card .card-header .company {
+    color: var(--color-black);
+    font-weight: var(--font-weight-bold);
+}
+
+.preview-body .card .card-header .period {
+    color: var(--color-off-black);
+    font-size: var(--font-size-s);
+}
+
+.preview-body .card .position {
+    color: var(--color-navy);
+}
+
+.preview-body .card .location {
+    font-style: italic;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-light);
+    color: var(--color-off-black);
+}
+
+.preview-body .card .description {
+    color: var(--color-off-black);
+    font-size: var(--font-size-s);
+    white-space: pre-line;
+}
+
+.preview.skill .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-base);
+}
+
+.preview.skill .skills-container .skill-badge {
+    background: var(--color-white);
+    color: var(--color-navy);
+    padding: calc((var(--spacing-s) / 2)) var(--spacing-base);
+    border-radius: calc(var(--border-radius) / 2);
+    font-size: var(--font-size-s);
+}

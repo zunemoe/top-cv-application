@@ -15,16 +15,16 @@ function PersonalInfoPreview({ personalInfo }) {
             <h2>{fullName}</h2>
             <div className="personal-info">
                 {email && (
-                    <p><Icon path={mdiEmail} size={1} /> {email}</p>
+                    <p><Icon path={mdiEmail} size={1} /><a href={`mailto:${email}`}>{email}</a></p>
                 )}
                 {mobile && (
-                    <p><Icon path={mdiCellphone} size={1} /> {mobile}</p>
+                    <p><Icon path={mdiCellphone} size={1} />{mobile}</p>
                 )}
                 {address && (
-                    <p><Icon path={mdiMapMarker} size={1} /> {address}</p>
+                    <p><Icon path={mdiMapMarker} size={1} />{address}</p>
                 )}
                 {linkedIn && (
-                    <p><Icon path={mdiLinkedin} size={1} /> {linkedIn}</p>
+                    <p><Icon path={mdiLinkedin} size={1} /><a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                 )}
             </div>
         </div>
