@@ -11,7 +11,7 @@
 .preview-header h2 {
     color: var(--color-white);
     margin-bottom: var(--spacing-base);
-    font-size: var(--font-size-xl);    
+    font-size: var(--h2-size);
 }
 
 .preview-header .personal-info {
@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     gap: 0.25rem; /* Space between icon and text */
+    font-size: var(--p-size);
 }
 
 .preview-header .personal-info svg {
@@ -49,6 +50,8 @@
 
 .preview-body h3 {
     color: var(--color-navy);
+    font-family: var(--preview-font);
+    font-size: var(--h3-size);
     background: var(--theme-accent);
     text-align: center;
     padding: calc((var(--spacing-s) / 2));
@@ -74,27 +77,29 @@
 .preview-body .card .card-header .company {
     color: var(--color-black);
     font-weight: var(--font-weight-bold);
+    font-size: var(--h4-size);
 }
 
 .preview-body .card .card-header .period {
     color: var(--color-off-black);
-    font-size: var(--font-size-s);
+    font-size: var(--small-size);
 }
 
 .preview-body .card .position {
     color: var(--color-navy);
+    font-size: var(--p-size);
 }
 
 .preview-body .card .location {
     font-style: italic;
-    font-size: var(--font-size-s);
+    font-size: var(--small-size);
     font-weight: var(--font-weight-light);
     color: var(--color-off-black);
 }
 
 .preview-body .card .description {
     color: var(--color-off-black);
-    font-size: var(--font-size-s);
+    font-size: var(--small-size);
     white-space: pre-line;
 }
 
@@ -109,5 +114,5 @@
     color: var(--color-navy);
     padding: calc((var(--spacing-s) / 2)) var(--spacing-base);
     border-radius: calc(var(--border-radius) / 2);
-    font-size: var(--font-size-s);
+    font-size: var(--small-size);
 }

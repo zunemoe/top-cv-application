@@ -33,8 +33,28 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
+    font-family: var(--preview-font-family);
+    font-size: var(--root-font-size, 16px);
     --theme-primary: var(--preview-primary, var(--color-blue));
     --theme-accent: var(--preview-accent, var(--color-light-blue));
+    --h2-size: calc(var(--root-font-size, 16px) * 2);
+    --h3-size: calc(var(--root-font-size, 16px) * 1.5);
+    --h4-size: calc(var(--root-font-size, 16px) * 1.15);
+    --p-size: calc(var(--root-font-size, 16px) * 1);
+    --small-size: calc(var(--root-font-size, 16px) * 0.875);
+}
+
+/* Override the global font rules specifically for CV preview */
+.cv-preview h2, 
+.cv-preview h3,
+.cv-preview h4 {
+    font-family: inherit; /* Inherit from .cv-preview */
+}
+
+.cv-preview p, 
+.cv-preview div,
+.cv-preview span {
+    font-family: inherit; /* Inherit from .cv-preview */
 }
 
 .footer {

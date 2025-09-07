@@ -22,9 +22,9 @@ export const fontOptions = [
 ];
 
 export const fontSizeOptions = [
-    { id: 's', name: 'Small', size: '14px', description: 'Compact layout'},
-    { id: 'm', name: 'Medium', size: '16px', description: 'Balanced & readable'},
-    { id: 'l', name: 'Large', size: '20px', description: 'Bold & prominent' }
+    { id: 's', name: 'Small', size: '14px'},
+    { id: 'm', name: 'Medium', size: '16px'},
+    { id: 'l', name: 'Large', size: '20px'}
 ];
 
 export const colorThemes = [
