@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useScrollToForm } from "../../../hooks/useScrollToForm.js";
+import { useAutoFocus } from "../../../hooks/useAutoFocus.js";
 import ExperienceForm from "./ExperienceForm.jsx";
 import ExperienceCard from "./ExperienceCard.jsx";
 import Icon from "@mdi/react";
@@ -11,6 +12,9 @@ function Experience({ cvDataHook }) {
   const [experiences, setExperiences] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const editingRef = useScrollToForm(editingId);
+  const focusRef = useAutoFocus(editingId, {
+        focusSelector: 'input:first-of-type'
+    });
 
   useEffect(() => {
     setExperiences(cvData.experiences || []);
@@ -86,7 +90,7 @@ function Experience({ cvDataHook }) {
   };
 
   return (
-    <section className="section Experience">
+    <section className="section experience">
       <div
         className="section-header"
         ref={editingId !== null ? editingRef : null}
@@ -107,6 +111,7 @@ function Experience({ cvDataHook }) {
           <div
             key={exp.id}
             className={`experience-item ${exp.isEditing ? "form" : "card"}`}
+            ref={exp.isEditing ? focusRef : null}
           >
             {exp.isEditing ? (
               <ExperienceForm

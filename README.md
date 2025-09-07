@@ -45,12 +45,13 @@ npm run dev
 [x] Project setup and structure
 [x] README and architecture documentation
 [x] Basic layout (2-column design)
-[ ] Custom hook for state management
+[x] Custom hook for state management
 [x] Personal Info component
 [x] Experience component
 [x] Education component
 [x] Skills component
-[ ] CV Preview component
+[x] CV Preview component
+[ ] CV Config component
 [ ] Styling
 [ ] Form validation
 [ ] Data persistence (localStorage)

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useScrollToForm } from '../../../hooks/useScrollToForm.js'
+import { useAutoFocus } from "../../../hooks/useAutoFocus.js"
 import SkillForm from './SkillForm.jsx'
 import SkillCard from './SkillCard.jsx'
 import Icon from '@mdi/react'
@@ -11,6 +12,9 @@ function Skill({ cvDataHook }) {
     const [skills, setSkills] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const editingRef = useScrollToForm(editingId);
+    const focusRef = useAutoFocus(editingId, {
+        focusSelector: 'input:first-of-type'
+    });
 
     useEffect(() => {
         setSkills(cvData.skills || []);
@@ -83,7 +87,7 @@ function Skill({ cvDataHook }) {
     };
 
     return(
-        <section className="section Skill">
+        <section className="section skill">
             <div 
             className="section-header"
             ref={editingId !== null ? editingRef : null}
@@ -102,6 +106,7 @@ function Skill({ cvDataHook }) {
                     <div 
                     key={skill.id} 
                     className={`skill-item ${skill.isEditing ? 'form' : 'card'}`}                    
+                    ref={skill.isEditing ? focusRef : null}
                     >
                         {skill.isEditing ? (
                             <SkillForm

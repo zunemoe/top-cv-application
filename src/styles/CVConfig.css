@@ -1,0 +1,9 @@
+.section-content {
+    padding: var(--spacing-base);
+}
+
+.color-theme-grid,
+.font-options-grid,
+.font-size-options {
+    display: flex;
+}

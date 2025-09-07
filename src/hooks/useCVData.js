@@ -11,7 +11,12 @@ function useCVData() {
         },
         experiences: [],
         educations: [],
-        skills: []
+        skills: [],
+        config: {
+            fontFamily: 'inter',
+            fontSize: 'm',
+            colorTheme: 'blue'
+        }
     });
 
     const updatePersonalInfo = (info) => {
@@ -90,6 +95,25 @@ function useCVData() {
         }));
     }
 
+    const updateConfig = (configUpdates) => {
+        setCvData(prev => ({
+            ...prev,
+            config: { ...prev.config, ...configUpdates }
+        }));
+    }
+
+    const updateFontFamily = (fontFamily) => {
+        updateConfig({ fontFamily });
+    }
+
+    const updateFontSize = (fontSize) => {
+        updateConfig({ fontSize });
+    }
+
+    const updateColorTheme = (colorTheme) => {
+        updateConfig({ colorTheme });
+    }
+
     return {
         cvData,
         updatePersonalInfo,
@@ -101,7 +125,12 @@ function useCVData() {
         updateSkill,
         deleteExperience,
         deleteEducation,
-        deleteSkill
+        deleteSkill,
+
+        updateConfig,
+        updateFontFamily,
+        updateFontSize,
+        updateColorTheme
     };
 };
 

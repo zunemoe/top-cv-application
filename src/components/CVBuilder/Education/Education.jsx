@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useScrollToForm } from '../../../hooks/useScrollToForm.js'
+import { useAutoFocus } from "../../../hooks/useAutoFocus.js"
 import EducationForm from "./EducationForm.jsx"
 import EducationCard from "./EducationCard.jsx"
 import Icon from '@mdi/react'
@@ -10,6 +11,9 @@ function Education({ cvDataHook }) {
     const [educations, setEducations] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const editingRef = useScrollToForm(editingId);
+    const focusRef = useAutoFocus(editingId, {
+        focusSelector: 'input:first-of-type'
+    });
 
     useEffect(() => {
         setEducations(cvData.educations || []);
@@ -88,8 +92,8 @@ function Education({ cvDataHook }) {
     return (
         <section className="section education">
             <div 
-            className="section-header"
-            ref={editingId !== null ? editingRef : null}
+            className="section-header"   
+            ref={editingId !== null ? editingRef : null}         
             >
                 <h2>Education</h2>
                 <Icon 
@@ -97,14 +101,16 @@ function Education({ cvDataHook }) {
                 size={1} 
                 title="Add Education"
                 className={`btn add-education ${editingId !== null ? 'disable' : ''}`}
-                onClick={addEducationItem}
+                onClick={editingId === null ? addEducationItem : undefined}
                 />
             </div>
-            <div className="education-container">         
+            <div 
+            className="education-container">         
                 {educations.map(edu => (
                     <div 
                     key={edu.id} 
                     className={`education-item ${edu.isEditing ? 'form' : 'card'}`}                  
+                    ref={edu.isEditing ? focusRef : null}
                     >
                         {edu.isEditing ? (
                             <EducationForm
