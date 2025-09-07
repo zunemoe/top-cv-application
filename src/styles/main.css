@@ -33,6 +33,8 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
+    --theme-primary: var(--preview-primary, var(--color-blue));
+    --theme-accent: var(--preview-accent, var(--color-light-blue));
 }
 
 .footer {
@@ -45,6 +47,6 @@ h1, h2, h3, button {
     font-family: var(--font-primary);
 }
 
-p, label, input, textarea {
+p, label, input, textarea, div {
     font-family: var(--font-secondary);
 }

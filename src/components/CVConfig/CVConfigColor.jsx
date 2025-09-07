@@ -15,8 +15,8 @@ function CVConfigColor({ cvDataHook }) {
             style={{ backgroundColor: theme.primary }}
             ></div>
             <div
-            className="color-half secondary"
-            style={{ backgroundColor: theme.secondary }}
+            className="color-half accent"
+            style={{ backgroundColor: theme.accent }}
             ></div>
         </div>
     );
@@ -34,10 +34,6 @@ function CVConfigColor({ cvDataHook }) {
                         className={`color-theme-option ${currentTheme === theme.id ? 'selected' : ''}`}
                         >
                             <ColorCircle theme={theme} isSelected={currentTheme === theme.id} />
-                            <div className="theme-info">
-                                <span className="theme-name">{theme.name}</span>
-                                <span className="theme-description">{theme.description}</span>
-                            </div>
                         </div>
                         ))}
                 </div>

@@ -24,16 +24,12 @@ function CVConfigFontStyle({ cvDataHook }) {
                                 >
                                     Aa
                                 </div>
-                                <div
-                                className="font-sample"
-                                style={{ fontFamily: font.fontFamily }}
-                                >
-                                    {font.preview}
-                                </div>
                             </div>
-                            <div className="font-info">
-                                <span className="font-name">{font.name}</span>
-                                <span className="font-description">{font.fontFamily.split(',')[0]}</span>
+                            <div 
+                            className="font-info"
+                            style={{ fontFamily: font.fontFamily }}
+                            >
+                                <span className="font-name">{font.name}</span>                                
                             </div>
                         </div>
                     ))}

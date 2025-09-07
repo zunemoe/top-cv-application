@@ -16,20 +16,20 @@ function CVConfigFontSize({ cvDataHook }) {
                         key={size.id}
                         className={`font-size-option ${currentFontSize === size.id ? 'selected' : ''}`}
                         onClick={() => updateFontSize(size.id)}
+                        style={{ fontSize: size.size }}
                         >
-                            <div className="size-preview-container">
-                                <div
+                            Aa
+                            {/* <div
                                 className="size-preview-text"
                                 style={{ fontSize: size.size }}
                                 >
                                     Aa
-                                </div>
-                            </div>
-                            <div className="size-info">
+                                </div> */}
+                            {/* <div className="size-info">
                                 <span className="size-name">{size.name}</span>
                                 <span className="size-value">{size.size}</span>
                                 <span className="size-description">{size.description}</span>
-                            </div>
+                            </div> */}
                         </div>
                     ))}
                 </div>

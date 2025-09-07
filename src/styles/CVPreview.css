@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: var(--color-blue);
+    background: var(--theme-primary);
     padding: var(--spacing-xl);
 }
 
@@ -49,7 +49,7 @@
 
 .preview-body h3 {
     color: var(--color-navy);
-    background: var(--color-light-blue);
+    background: var(--theme-accent);
     text-align: center;
     padding: calc((var(--spacing-s) / 2));
     margin-bottom: var(--spacing-base);
