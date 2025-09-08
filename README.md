@@ -51,7 +51,7 @@ npm run dev
 [x] Education component
 [x] Skills component
 [x] CV Preview component
-[ ] CV Config component
-[ ] Styling
+[x] CV Config component
+[x] Styling
 [ ] Form validation
 [ ] Data persistence (localStorage)
