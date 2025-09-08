@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import usePDFDownload from '../../../hooks/usePDFDownload'
+import Icon from '@mdi/react';
+import { mdiDownloadBox } from '@mdi/js';
 
 function PersonalInfo({ cvDataHook }) {
     const { cvData, updatePersonalInfo } = cvDataHook;
+    const { downloadPDF } = usePDFDownload();
+    const [isDownloading, setIsDownloading] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -11,10 +16,36 @@ function PersonalInfo({ cvDataHook }) {
         });
     }
 
+    const handleDownload = async () => {
+        setIsDownloading(true);
+
+        try {
+            const cvElement = document.querySelector('.cv-preview');
+
+            if (!cvElement) throw new Error('CV preview element not found');
+
+            const fullName = cvData?.personalInfo?.fullName || 'CV';
+            const fileName = fullName.replace(/\s+/g, '_') + '_CV';
+
+            await downloadPDF(cvElement, fileName);
+        } catch (error) {
+            console.error('Error downloading PDF:', error);
+        } finally {
+            setIsDownloading(false);
+        }
+    }
+
     return (
         <section className="section personal-info">
             <div className="section-header">
                 <h2>Personal Info</h2>
+                <Icon 
+                path={mdiDownloadBox} 
+                size={1} 
+                className={`btn download-pdf ${isDownloading ? 'disable' : ''}`}
+                onClick={handleDownload}
+                title="Download CV as PDF"
+                />
             </div>
             <form className="form personal-info">
                 <div className="form-row">

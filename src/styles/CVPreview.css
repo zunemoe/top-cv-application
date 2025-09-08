@@ -19,15 +19,18 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    align-items: flex-start;
     gap: var(--spacing-l);
     color: var(--color-white);
 }
 
 .preview-header .personal-info p {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.25rem; /* Space between icon and text */
     font-size: var(--p-size);
+    margin: 0;
+    line-height: 1.4;
 }
 
 .preview-header .personal-info svg {
@@ -72,6 +75,8 @@
 .preview-body .card .card-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.25rem;
 }
 
 .preview-body .card .card-header .company {

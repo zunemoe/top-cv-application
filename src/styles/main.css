@@ -42,6 +42,13 @@
     --h4-size: calc(var(--root-font-size, 16px) * 1.15);
     --p-size: calc(var(--root-font-size, 16px) * 1);
     --small-size: calc(var(--root-font-size, 16px) * 0.875);
+    
+    /* Enhancement for PDF rendering */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+    line-height: 1.4;
+    text-align: left;
 }
 
 /* Override the global font rules specifically for CV preview */
