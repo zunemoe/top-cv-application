@@ -3,6 +3,7 @@ import PersonalInfo from './PersonalInfo/PersonalInfo.jsx'
 import Experience from './Experience/Experience.jsx'
 import Education from './Education/Education.jsx'
 import Skill from './Skill/Skill.jsx'
+import Toolbox from './Toolbox/Toolbox.jsx'
 import CVConfig from '../CVConfig/CVConfig.jsx'
 
 function CVBuilder({ cvDataHook }) {
@@ -16,6 +17,7 @@ function CVBuilder({ cvDataHook }) {
     if (activeTab === 'content') {
       return (
         <>
+          <Toolbox cvDataHook={cvDataHook} />
           <PersonalInfo cvDataHook={cvDataHook} />
           <Experience cvDataHook={cvDataHook} />
           <Education cvDataHook={cvDataHook} />

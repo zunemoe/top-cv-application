@@ -47,16 +47,11 @@
 /* Builder Sections */
 .builder-sections {
     width: clamp(250px, 25vw, 400px);
-    /* background: lightgrey; */
     border-radius: var(--border-radius);
-    /* box-shadow: var(--box-shadow); */
-    /* padding: var(--spacing-base); */
 }
 
 .section {
     margin-bottom: var(--spacing-l);
-    /* padding-bottom: 1rem; */
-    /* padding: var(--spacing-base); */
     background: var(--color-off-white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -81,9 +76,9 @@
 .section-header .btn {
     display: flex;
     border: none;    
-    background: var(--color-navy);
+    background: var(--color-blue);
     border-radius: 0.25rem;
-    color: var(--color-white);
+    color: var(--color-off-white);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -203,4 +198,37 @@
     margin-bottom: var(--spacing-l);
 }
 
+/* Toolbox */
+.toolbox-container {
+    padding: var(--spacing-base);
+    display: flex;
+    gap: var(--spacing-s);
+}
 
+.btn.add-dummy-data,
+.btn.clear-cv,
+.btn.download-pdf {
+    /* width: calc(100% - var(--spacing-base) * 2 - var(--spacing-s) * 2 / 3); */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: var(--color-blue);
+    border-radius: calc(var(--border-radius) / 2);
+    padding: calc(var(--spacing-s) / 2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn.add-dummy-data svg,
+.btn.clear-cv svg,
+.btn.download-pdf svg {
+    color: var(--color-off-white);
+}
+
+.btn.add-dummy-data:hover,
+.btn.clear-cv:hover,
+.btn.download-pdf:hover {
+    filter: brightness(var(--brightness-hover));
+}

@@ -5,12 +5,9 @@ import useCVData from './hooks/useCVData.js'
 
 function App() {
   const cvDataHook = useCVData()
-
+  const currentYear = new Date().getFullYear()
   return (
     <div className="app">
-      <header className="header">
-        <h1>CV Builder</h1>          
-      </header>
 
       {/* CV Builder */}
       <CVBuilder cvDataHook={cvDataHook}/>
@@ -19,7 +16,7 @@ function App() {
       <CVPreview cvData={cvDataHook.cvData}/>
 
       <footer className="footer">
-        <p>© 2025 CV Builder. All rights reserved.</p>
+        <p>© {currentYear} CV Builder. Made with ❤️ by zunemoe in Auckland.</p>
       </footer>
     </div>
   )

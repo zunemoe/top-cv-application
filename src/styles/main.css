@@ -7,14 +7,13 @@
 .app {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
-        "header header"
         "cv-builder cv-preview"
         "footer footer";
     gap: 1rem;
     min-height: 100dvh;
-    padding: 0 var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-xl) 0 var(--spacing-xl);
 }
 
 .header {
@@ -25,6 +24,7 @@
 .cv-builder {
     grid-area: cv-builder;
     display: flex;    
+    align-self: start;
 }
 
 .cv-preview {
@@ -49,6 +49,12 @@
     color-adjust: exact;
     line-height: 1.4;
     text-align: left;
+
+    align-self: start;
+    justify-self: start;
+    height: fit-content;
+    max-height: 100%;
+    width: 100%;
 }
 
 /* Override the global font rules specifically for CV preview */
