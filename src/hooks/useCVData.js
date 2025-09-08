@@ -4,16 +4,16 @@ const dummyData = {
     personalInfo: {
         fullName: 'John Smith',
         email: 'john.smith@email.com',
-        mobile: '+1 (555) 123-4567',
-        address: 'New York, NY',
-        linkedIn: 'johnsmith'
+        mobile: '+64 (12) 34-56789',
+        address: 'Auckland, NZ',
+        linkedIn: 'notrealjohnsmith'
     },
     experiences: [
         {
             id: 1,
             company: 'Tech Solutions Inc.',
             position: 'Senior Software Engineer',
-            location: 'San Francisco, CA',
+            location: 'Auckland, NZ',
             startDate: '2021-03',
             endDate: 'Present',
             description: 'Led development of microservices architecture serving 1M+ users daily. Collaborated with cross-functional teams to deliver high-quality software solutions using React, Node.js, and AWS.'
@@ -22,7 +22,7 @@ const dummyData = {
             id: 2,
             company: 'StartupXYZ',
             position: 'Full Stack Developer',
-            location: 'Austin, TX',
+            location: 'Singapore, SG',
             startDate: '2019-06',
             endDate: '2021-02',
             description: 'Built responsive web applications from scratch using modern JavaScript frameworks. Implemented RESTful APIs and database optimization strategies that improved performance by 40%.'
@@ -52,9 +52,8 @@ const dummyData = {
         { id: 3, name: 'Node.js' },
         { id: 4, name: 'Python' },
         { id: 5, name: 'SQL' },
-        { id: 6, name: 'AWS' },
         { id: 7, name: 'Git' },
-        { id: 8, name: 'Docker' }
+
     ],
     config: {
         fontFamily: 'inter',
